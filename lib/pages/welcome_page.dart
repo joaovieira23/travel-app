@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
+import 'package:travel_app/widgets/responsive_button.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -60,7 +61,9 @@ class _WelcomePageState extends State<WelcomePage> {
                           color: AppColors.textColor2,
                           size: 14
                         ),
-                      )
+                      ),
+                      SizedBox(height: 40,),
+                      ResponsiveButton(width: 120,)
                     ],
                   )
                 ]
