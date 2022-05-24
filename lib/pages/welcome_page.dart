@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
+import 'package:travel_app/widgets/app_text.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -15,6 +17,12 @@ class _WelcomePageState extends State<WelcomePage> {
     "welcome-one.png",
     "welcome-two.png",
     "welcome-three.png",
+  ];
+
+  List text = [
+    'Trips',
+    'Adventures',
+    'Camping',
   ];
 
   @override
@@ -40,8 +48,19 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Row(
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AppLargeText(text: 'Trips')
+                      AppLargeText(text: text[index]),
+                      AppText(text: 'Mountain', size: 30),
+                      SizedBox(height: 20,),
+                      Container(
+                        width: 250,
+                        child: AppText(
+                          text: "Mountain hike give you an incredible sense of freedom along with endurance test",
+                          color: AppColors.textColor2,
+                          size: 14
+                        ),
+                      )
                     ],
                   )
                 ]
