@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
+import 'package:travel_app/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -67,15 +68,47 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             Container(
+              padding: const EdgeInsets.only(left: 20),
               height: 300,
               width: double.maxFinite,
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  Text("Hi"),
+                  ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) { 
+                      return Container(
+                        margin: const EdgeInsets.only(right: 15, top: 10),
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "img/mountain.jpeg"
+                            ),
+                            fit: BoxFit.cover
+                          )
+                        ),
+                      );
+                     },
+                  ),
                   Text("There"),
                   Text("Bye"),
                 ]),
+              ),
+              SizedBox(height: 30,),
+              Container(
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppLargeText(text: "Explore more", size: 22,),
+                    AppText(text: 'Seel all', color: AppColors.textColor1,)
+                  ],
+                ),
               )
             ],
           ),
