@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,6 +57,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   unselectedLabelColor: Colors.grey,
                   isScrollable: true,
                   indicatorSize: TabBarIndicatorSize.label,
+                  indicator: CircleTabIndicator(color: AppColors.mainColor, radius: 4),
                   tabs: [
                     Tab(text: 'Places'),
                     Tab(text: 'Inspiration'),
@@ -79,4 +81,38 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
         );
       }
+    }
+
+
+    class CircleTabIndicator extends Decoration {
+      final Color color;
+      double radius;
+      CircleTabIndicator({
+        required this.color, required this.radius
+      });
+      @override
+      BoxPainter createBoxPainter([VoidCallback? onChanged]) {
+    // TODO: implement createBoxPainter
+        return _CirclePainter(color: color, radius: radius);
+      }
+
+
+    }
+
+    class _CirclePainter extends BoxPainter {
+      final Color color;
+      double radius;
+      _CirclePainter({
+        required this.color, required this.radius
+      });
+
+      @override
+      void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+        Paint _paint = Paint();
+        _paint.color = color;
+        _paint.isAntiAlias = true;
+
+        canvas.drawCircle(offset, radius, _paint);
+      }
+
     }
