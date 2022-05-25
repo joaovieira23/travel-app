@@ -111,8 +111,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         Paint _paint = Paint();
         _paint.color = color;
         _paint.isAntiAlias = true;
+        final Offset circleOffSet = Offset(configuration.size!.width / 2 - radius / 2, configuration.size!.height - radius);
 
-        canvas.drawCircle(offset, radius, _paint);
+        canvas.drawCircle(offset + circleOffSet, radius, _paint);
       }
 
     }
