@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:travel_app/widgets/app_large_text.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _DetailPageState extends State<DetailPage> {
               right: 0,
               child: Container(
                 width: double.maxFinite,
-                height: 300,
+                height: 350,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("img/mountain.jpeg"),
@@ -43,6 +44,30 @@ class _DetailPageState extends State<DetailPage> {
 
               ],
             )),
+            Positioned(
+              top: 320,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 500,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30)
+                  )
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        AppLargeText(text: "Yosemite"),
+                        AppLargeText(text: "\$ 250")
+                      ],
+                    )
+                  ],
+                ),
+            ))
           ],
         ),
       ),
