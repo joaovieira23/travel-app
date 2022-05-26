@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:travel_app/misc/colors.dart';
+import 'package:travel_app/widgets/app.buttons.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
 
@@ -93,7 +94,17 @@ class _DetailPageState extends State<DetailPage> {
                     SizedBox(height: 25,),
                     AppLargeText(text: "People", color: Colors.black.withOpacity(0.8), size: 20,),
                     SizedBox(height: 5,),
-                    AppText(text: "Number of people in your group", color: AppColors.mainTextColor,)
+                    AppText(text: "Number of people in your group", color: AppColors.mainTextColor,),
+                    Wrap(
+                      children: List.generate(5, (index) {
+                        return AppButtons(
+                          size: 50, 
+                          color: Colors.black, 
+                          backgroundColor: AppColors.buttonBackground, 
+                          borderColor: AppColors.buttonBackground,
+                        );
+                      }),
+                    )
                   ],
                 ),
             ))
