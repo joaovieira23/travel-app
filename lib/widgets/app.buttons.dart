@@ -1,17 +1,26 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
+import 'package:travel_app/widgets/app_text.dart';
 
 class AppButtons extends StatelessWidget {
   final Color color;
+  String? text;
+  IconData? icon;
   final Color backgroundColor;
   double size;
   final Color borderColor;
+  bool isIcon;
+
   
   AppButtons({Key? key,
+    this.isIcon = false,
+    this.icon,
+    this.text = "Hi",
     required this.size,
     required this.color,
     required this.backgroundColor,
-    required this.borderColor
+    required this.borderColor,
   }): super(key: key);
 
   @override
@@ -27,6 +36,7 @@ class AppButtons extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         color: backgroundColor
       ),
+      child: !isIcon ? Center(child: AppText(text: text!, color: Colors.black)) : Center(child: Icon(icon, color: color,)),
     ); 
   }
 }
