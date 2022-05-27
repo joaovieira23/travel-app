@@ -6,6 +6,7 @@ import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app.buttons.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
+import 'package:travel_app/widgets/responsive_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -118,7 +119,7 @@ class _DetailPageState extends State<DetailPage> {
                         );
                       }),
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 15,),
                     AppLargeText(text: "Description", color: Colors.black.withOpacity(0.8), size: 20,),
                     SizedBox(height: 10,),
                     AppText(text: "You must go for a travel. Travelling helps get rid of pressure. Go to the mountains to see the nature.", color: AppColors.mainTextColor,)
@@ -130,6 +131,7 @@ class _DetailPageState extends State<DetailPage> {
             Positioned(
               bottom: 10,
               left: 20,
+              right: 20,
               child: Row(
                 children: [
                   AppButtons(
@@ -139,6 +141,11 @@ class _DetailPageState extends State<DetailPage> {
                     borderColor: AppColors.textColor1,
                     isIcon: true,
                     icon: Icons.favorite_border
+                  ),
+                  SizedBox(width: 20,),
+                  ResponsiveButton(
+                    isResponsive: true,
+
                   )
                 ],
               ))
