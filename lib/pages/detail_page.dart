@@ -125,7 +125,23 @@ class _DetailPageState extends State<DetailPage> {
                     
                   ],
                 ),
-            ))
+              )
+            ),
+            Positioned(
+              bottom: 10,
+              left: 20,
+              child: Row(
+                children: [
+                  AppButtons(
+                    size: 60, 
+                    color: AppColors.textColor1, 
+                    backgroundColor: Colors.white, 
+                    borderColor: AppColors.textColor1,
+                    isIcon: true,
+                    icon: Icons.favorite_border
+                  )
+                ],
+              ))
           ],
         ),
       ),
